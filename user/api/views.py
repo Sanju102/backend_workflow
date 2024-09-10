@@ -5,6 +5,13 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
 from .serializers import UserSerializer
 
+@api_view(['GET'])
+def user_list(request):
+    if request.method=='GET':
+        user=User.objects.all()
+        data=UserSerializer(user,many=True)
+        return Response(data.data)
+
 @api_view(['POST'])
 def logout_user(request):
     if request.method=='POST':
