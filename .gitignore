@@ -1,0 +1,7 @@
+# Environment variables file
+.env
+env
+
+# Python bytecode and cache
+__pycache__
+migrations
